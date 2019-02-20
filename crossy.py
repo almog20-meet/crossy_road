@@ -34,31 +34,36 @@ class Car(Turtle):
 	def new_car(self,pos):
 		self.car_pos = pos
 
-	def choose_color():
-		self.
+
 def show_coordination(x, y):
 	print(str(x)+","+str(y))
 
 turtle.onscreenclick(show_coordination)
-
+def pick_color():
+    colors = ["purple","lime","lavender","cyan","salmon","gold","lawngreen"]
+    random.shuffle(colors)
+    return colors[0]
 colors = ["purple","lime","lavender","cyan","salmon","gold","lawngreen"]
 
 CARS = []
+y_pos = [287, 131, -19, -170, -300]
+random.shuffle(y_pos)
+
 for i in range(20):
 	rSPEED =  (random.random(), random.random(), random.random()) 
 	while rSPEED == 0:
 		rSPEED =  (random.random(), random.random(), random.random())
 	rCOLOR =  (random.random(), random.random(), random.random()) 
 	rPOSITION_X =
-	rPOSITION_Y = 
+	rPOSITION_Y = y_pos[0]
 	rPOSITION = (rPOSITION_X, rPOSITION_Y)
 	rWIDTH = 
-	c = Car(rSPEED, rCOLOR, rPOSITION, rWIDTH)
-	CARS.append(c)
+	car = Car(rSPEED, rCOLOR, rPOSITION, rWIDTH)
+	CARS.append(car)
 
 while True:
-	for c in CARS:
-		c.move()
+	for car in CARS:
+		car.move()
 
 
 turtle.mainloop()
