@@ -6,6 +6,10 @@ screen_height = turtle.getcanvas().winfo_height()/2
 turtle.setup(screen_width *2, screen_height*2)
 minimum_speed = -10
 maximum_speed = 10
+minimum_widht = 3
+maximum_widht = 8
+running = True 
+
 class Car(Turtle):
 	def __init__(self,speed,color,pos,width):
 		Turtle.__init__(self)
@@ -46,22 +50,23 @@ def pick_color():
 colors = ["purple","lime","lavender","cyan","salmon","gold","lawngreen"]
 
 CARS = []
-y_pos = [287, 131, -19, -170, -300]
+y_pos = [281, 132, -19, -170, -300]
 random.shuffle(y_pos)
 
 for i in range(20):
-	rSPEED =  (random.random(), random.random(), random.random()) 
+	rSPEED =  random.randint(minimum_speed, maximum_speed)
 	while rSPEED == 0:
-		rSPEED =  (random.random(), random.random(), random.random())
+		rSPEED = random.randint(mminimum_speed, maximum_speed)
 	rCOLOR =  (random.random(), random.random(), random.random()) 
 	rPOSITION_X =
 	rPOSITION_Y = y_pos[0]
 	rPOSITION = (rPOSITION_X, rPOSITION_Y)
-	rWIDTH = 
+	rWIDTH =  random.randint(minimum_widht, maximum_widht)
+	
 	car = Car(rSPEED, rCOLOR, rPOSITION, rWIDTH)
 	CARS.append(car)
 
-while True:
+while running == True:
 	for car in CARS:
 		car.move()
 
